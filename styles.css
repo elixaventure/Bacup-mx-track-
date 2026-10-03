@@ -213,3 +213,6 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space
 .facts li:last-child a { background: var(--plate); border-color: var(--plate); }
 .facts li:last-child .fact-k, .facts li:last-child .fact-d, .facts li:last-child .fact-v { color: var(--plate-ink); }
 .quick + section { border-top: 0; }
+
+/* Rain-or-shine badge in the hero */
+.weather-pill { display: inline-block; margin-top: 0.6rem; padding: 0.3rem 0.7rem; border: 2px solid #ffd21f; border-radius: 999px; color: #ffd21f; font-family: var(--display); font-weight: 700; font-size: clamp(1.1rem, 3.5vw, 1.4rem); text-transform: uppercase; letter-spacing: 0.04em; }
