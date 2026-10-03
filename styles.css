@@ -179,3 +179,26 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space
 .hours-table tr.today th, .hours-table tr.today td { font-weight: 700; background: var(--tbc-bg); color: var(--tbc-ink); }
 .hours-table tr.today th::after { content: " · today"; font-family: var(--mono); font-size: 0.75rem; font-weight: 500; }
 .hours .card p { color: var(--muted); }
+
+/* Parts delivery: the one full-bleed yellow band on the page */
+.delivery-flag { display: inline-block; margin-top: 1.25rem; padding: 0.55rem 0.8rem; border-radius: 6px; background: var(--ink); color: var(--bg); text-decoration: none; font-size: 0.95rem; }
+.delivery-flag strong { color: var(--plate); }
+.delivery-flag:hover { text-decoration: underline; text-underline-offset: 3px; }
+.parts { background: var(--plate); color: var(--plate-ink); border-top: 0; }
+.parts .eyebrow { color: var(--plate-ink); opacity: 0.75; }
+.parts .tbc { background: rgba(0, 0, 0, 0.1); color: var(--plate-ink); }
+.parts-grid { display: grid; gap: 2rem; grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 900px) { .parts-grid { grid-template-columns: 1.1fr 1fr; } }
+.parts-pitch { display: grid; gap: 1rem; min-width: 0; }
+.parts h2 { font-size: clamp(2.6rem, 7vw, 4.2rem); }
+.parts-call { display: grid; gap: 0.1rem; }
+.parts-label { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.parts-phone { font-family: var(--display); font-weight: 900; font-size: clamp(2.6rem, 9vw, 4rem); line-height: 1; text-decoration: none; font-variant-numeric: tabular-nums; color: var(--plate-ink); }
+.parts-phone:hover { text-decoration: underline; text-decoration-thickness: 4px; text-underline-offset: 6px; }
+.parts-note { font-size: 0.9rem; }
+.parts-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; counter-reset: step; min-width: 0; }
+.parts-steps li { counter-increment: step; display: grid; grid-template-columns: 2.6rem 1fr; gap: 0.2rem 0.9rem; background: #121212; color: #f4f4ef; border-radius: 8px; padding: 0.9rem 1rem; }
+.parts-steps li::before { content: counter(step); grid-row: span 2; font-family: var(--display); font-weight: 900; font-size: 2.2rem; line-height: 1; color: #ffd21f; }
+.parts-steps b { font-family: var(--display); font-size: 1.35rem; text-transform: uppercase; line-height: 1.1; }
+.parts-steps span { font-size: 0.93rem; color: #c9ccc5; }
+.parts + section { border-top: 0; }
