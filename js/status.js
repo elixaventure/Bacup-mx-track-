@@ -1,15 +1,66 @@
-// Track status from a published Google Sheet (CSV).
+// Track status box.
+// 1. Always shows today's normal hours from openingHours in js/config.js.
+// 2. If a Google Sheet is set up and has today's date, the sheet wins
+//    (e.g. "closed" for weather, a message, a sign-on time).
+//
 // Sheet layout: row 1 headers, row 2 values:
-//   status | message | days | hours | sign_on | date
+//   status | message | hours | sign_on | date
 // status is one of: open, closed, check
-// date is the day the status applies to (e.g. 04/10/2026). If it isn't today,
-// the site says when it was last set so riders don't trust a stale status.
+// date is the day the status applies to (e.g. 04/10/2026). A sheet row with
+// any other date is ignored, so a forgotten update never shows as today's.
 (function () {
-  const url = window.BACUP_CONFIG && window.BACUP_CONFIG.statusSheetCsvUrl;
-  if (!url) return;
-
-  const LABELS = { open: "Open today", closed: "Closed today", check: "Check back later" };
+  const config = window.BACUP_CONFIG || {};
+  const hours = config.openingHours || {};
+  const DAY_KEYS = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+  const DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const $ = (id) => document.getElementById(id);
+
+  function setState(state, label) {
+    $("st-light").dataset.state = state;
+    $("st-label").textContent = label;
+  }
+
+  function toMinutes(hhmm) {
+    const [h, m] = hhmm.split(":").map(Number);
+    return h * 60 + m;
+  }
+
+  // Next opening after now, as "Tuesday 09:00" (or "today 10:00").
+  function nextOpen(now) {
+    const mins = now.getHours() * 60 + now.getMinutes();
+    for (let i = 0; i < 8; i++) {
+      const day = (now.getDay() + i) % 7;
+      const h = hours[DAY_KEYS[day]];
+      if (!h) continue;
+      if (i === 0 && mins >= toMinutes(h[0])) continue;
+      const name = i === 0 ? "Today" : i === 1 ? "Tomorrow" : DAY_NAMES[day];
+      return name + " " + h[0];
+    }
+    return "";
+  }
+
+  // Baseline from normal opening hours.
+  function renderSchedule() {
+    const now = new Date();
+    const today = hours[DAY_KEYS[now.getDay()]];
+    const mins = now.getHours() * 60 + now.getMinutes();
+
+    const row = document.querySelector('#hours-body tr[data-day="' + now.getDay() + '"]');
+    if (row) row.classList.add("today");
+
+    if (!today) {
+      setState("closed", "Closed today");
+      $("st-hours").textContent = "Closed";
+    } else if (mins >= toMinutes(today[1])) {
+      setState("closed", "Closed now");
+      $("st-hours").textContent = today[0] + "–" + today[1];
+    } else {
+      setState("open", mins < toMinutes(today[0]) ? "Open later today" : "Open now");
+      $("st-hours").textContent = today[0] + "–" + today[1];
+    }
+    const next = nextOpen(now);
+    if (next) $("st-next").textContent = next;
+  }
 
   // Minimal CSV parser: handles quoted fields, commas and newlines inside quotes.
   function parseCsv(text) {
@@ -42,44 +93,31 @@
     return null;
   }
 
-  function setText(id, value) {
-    if (value) $(id).textContent = value;
-  }
-
-  function render(s) {
-    const state = (s.status || "").trim().toLowerCase();
+  // Today's update from the sheet overrides the schedule.
+  function renderSheet(s) {
     const date = parseDate(s.date);
-    const today = new Date();
-    const isToday = date && date.toDateString() === today.toDateString();
+    if (!date || date.toDateString() !== new Date().toDateString()) return;
 
-    setText("st-days", s.days);
-    setText("st-hours", s.hours);
-    setText("st-signon", s.sign_on);
+    const LABELS = { open: "Open today", closed: "Closed today", check: "Check back later" };
+    const state = (s.status || "").trim().toLowerCase();
+    if (LABELS[state]) setState(state, LABELS[state]);
+    if (state === "closed") $("st-hours").textContent = "Closed";
+    if (s.hours) $("st-hours").textContent = s.hours;
 
+    if (s.sign_on) {
+      $("st-signon").textContent = s.sign_on;
+      $("st-signon-row").hidden = false;
+    }
     const msg = $("st-msg");
     msg.textContent = s.message || "";
     msg.hidden = !s.message;
-
-    if (!LABELS[state]) return;
-
-    if (date && !isToday) {
-      // Stale or future status: don't show a confident open/closed light.
-      $("st-light").dataset.state = "check";
-      $("st-label").textContent = "Not updated today";
-      $("st-updated").textContent =
-        "Last update was for " +
-        date.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" }) +
-        ". Check our socials before you set off.";
-      return;
-    }
-
-    $("st-light").dataset.state = state;
-    $("st-label").textContent = LABELS[state];
-    $("st-updated").textContent = date
-      ? "Updated for today. We close in heavy rain to protect the track."
-      : "We close in heavy rain to protect the track.";
+    $("st-updated").textContent = "Updated by the track today.";
   }
 
+  renderSchedule();
+
+  const url = config.statusSheetCsvUrl;
+  if (!url) return;
   fetch(url + (url.includes("?") ? "&" : "?") + "t=" + Date.now(), { cache: "no-store" })
     .then((r) => (r.ok ? r.text() : Promise.reject(r.status)))
     .then((text) => {
@@ -88,9 +126,9 @@
       const keys = rows[0].map((h) => h.trim().toLowerCase().replace(/[\s-]+/g, "_"));
       const s = {};
       keys.forEach((k, i) => { s[k] = (rows[1][i] || "").trim(); });
-      render(s);
+      renderSheet(s);
     })
     .catch(() => {
-      // Leave the static fallback text in place.
+      // Keep the schedule-based status.
     });
 })();

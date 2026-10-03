@@ -169,3 +169,13 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space
 .lb-controls { display: flex; justify-content: center; gap: 0.5rem; margin-top: 0.75rem; }
 .lb-controls .btn { font: inherit; font-weight: 700; cursor: pointer; }
 .lightbox .btn.ghost { color: #eef0ea; border-color: #eef0ea; }
+
+/* Opening times */
+.hours { display: grid; gap: 1rem; grid-template-columns: 1fr; margin-top: 1rem; }
+@media (min-width: 760px) { .hours { grid-template-columns: 1.4fr 1fr; } }
+.hours-table caption { text-align: left; font-family: var(--display); font-weight: 700; font-size: 1.6rem; text-transform: uppercase; padding: 1rem 1rem 0.25rem; }
+.hours-table th { font-family: var(--body); font-size: 1rem; letter-spacing: 0; text-transform: none; color: var(--ink); font-weight: 500; }
+.hours-table td { text-align: right; }
+.hours-table tr.today th, .hours-table tr.today td { font-weight: 700; background: var(--tbc-bg); color: var(--tbc-ink); }
+.hours-table tr.today th::after { content: " · today"; font-family: var(--mono); font-size: 0.75rem; font-weight: 500; }
+.hours .card p { color: var(--muted); }

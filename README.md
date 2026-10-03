@@ -1,6 +1,6 @@
 # Bacup MX website
 
-Website for Bacup MX, a motocross track in Bacup, Lancashire. Open riding for kids and adults, track rules, prices, and a kit list with SaddMX affiliate links.
+Website for Bacup MX, a motocross track in Bacup, Lancashire. Open riding for kids and adults, track rules, prices, opening times, and a kit list with affiliate shop links.
 
 It's a plain static site (HTML, CSS, a little JavaScript) with no build step. It deploys to Netlify straight from this repo.
 
@@ -20,10 +20,9 @@ It's a plain static site (HTML, CSS, a little JavaScript) with no build step. It
 
 Search `index.html` for `class="tbc"`. Each one is a placeholder shown in yellow on the site:
 
-- Adult and youth prices, payment methods
-- Open days, hours, sign-on closing time (default text; the sheet overrides these)
+- Payment methods
 - Noise limit
-- Address, postcode, what3words, phone, email
+- Directions wording, phone number, Facebook page link
 - Licence and insurance requirements, first-aid cover (FAQ)
 
 ## Photos
@@ -40,24 +39,25 @@ Avoid photos where car number plates or children's faces are clearly visible, un
 
 ## Affiliate links
 
-Open `js/config.js` and replace each `REPLACE_ME` with the full SaddMX affiliate URL for that item. Real links open in a new tab and are marked `rel="sponsored"`, which is what Google expects for affiliate links. Keep the affiliate disclosure on the kit section and in the footer.
+Open `js/config.js` and replace each `REPLACE_ME` with the full affiliate URL for that item. Buttons say "Shop now" and the retailer isn't named on the page. Real links open in a new tab and are marked `rel="sponsored"`, which is what Google expects for affiliate links. Keep the affiliate disclosure on the kit section and in the footer.
 
 ## Track status from your phone (Google Sheet)
 
 1. Create a Google Sheet with these headers in row 1 and today's values in row 2:
 
-   | status | message | days | hours | sign_on | date |
-   | --- | --- | --- | --- | --- | --- |
-   | open | Track watered, all jumps open | Sat–Sun | 10:00–16:00 | 14:00 | 04/10/2026 |
+   | status | message | hours | sign_on | date |
+   | --- | --- | --- | --- | --- |
+   | closed | Waterlogged, back open Friday | | | 04/10/2026 |
 
    - `status` must be `open`, `closed` or `check`. Add a dropdown with Data → Data validation so it can't be mistyped.
    - `message` is optional and shows in bold under the status.
-   - `date` is the day the status is for. **If it isn't today, the site shows "Not updated today"** instead of an open/closed light, so riders never act on yesterday's status.
+   - `hours` and `sign_on` are optional. Leave them blank to use the normal hours.
+   - `date` is the day the update is for. **The site only uses the row when the date is today**, so a forgotten update never shows as current.
 2. File → Share → **Publish to web** → pick the sheet → **Comma-separated values (.csv)** → Publish. Copy the link.
 3. Paste that link into `statusSheetCsvUrl` in `js/config.js`.
 4. From then on, update row 2 from the Google Sheets app on your phone. Google can take up to 5 minutes to publish a change.
 
-If the sheet link is empty or the sheet can't be reached, the site falls back to "Check before you travel".
+Without a sheet update for today, the box shows the normal opening hours from `openingHours` in `js/config.js` ("Open now", "Closed today", "Next open: Friday 10:00"). If you change your opening hours, update both `openingHours` and the opening times table in `index.html`.
 
 ## Run locally
 
