@@ -16,6 +16,10 @@ It's a plain static site (HTML, CSS, a little JavaScript) with no build step. It
 | `js/gallery.js` | Tap-to-enlarge photo viewer for the gallery |
 | `images/` | Photos, saved as WebP at 1600px and 800px wide, with location data removed |
 
+## Updating the site
+
+When you change `styles.css` or anything in `js/`, bump the `?v=` number on their links in `index.html` (e.g. `?v=20261004a` → `?v=20261004b`). Otherwise phones may keep using the old file for a while.
+
 ## Before launch
 
 - Remove the `noindex` line from the top of `index.html` and change `robots.txt` to allow search engines. Until then the site stays out of Google.
