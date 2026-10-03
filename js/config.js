@@ -6,9 +6,12 @@ window.BACUP_CONFIG = {
   // See README.md for how to set the sheet up. Leave as "" to hide live status.
   statusSheetCsvUrl: "",
 
-  // Drone flyover on YouTube. Paste the video link (any YouTube link format
-  // works). Leave as "" to hide the flyover player.
-  flyoverYoutubeUrl: "",
+  // Drone videos on YouTube. Add one line per video: the YouTube link and a
+  // short title. The first one shows in the big player. Leave the list empty
+  // to hide the section.
+  // Example: { url: "https://youtu.be/abc123XYZ00", title: "Full track flyover" },
+  droneVideos: [
+  ],
 
   // Normal opening hours, used for "Hours today" and "Next open" when the
   // sheet hasn't been updated today. null means closed. Keep in step with the
