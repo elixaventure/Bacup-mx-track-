@@ -1,0 +1,14 @@
+# Plain static site: no build step, publish the repo root.
+[build]
+  publish = "."
+
+# Keep scripts and styles fresh so config changes show up quickly.
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
