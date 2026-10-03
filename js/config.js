@@ -11,6 +11,7 @@ window.BACUP_CONFIG = {
   // to hide the section.
   // Example: { url: "https://youtu.be/abc123XYZ00", title: "Full track flyover" },
   droneVideos: [
+    { url: "https://youtu.be/Mze__RNCXBg", title: "Full track drone flyover" },
   ],
 
   // Normal opening hours, used for "Hours today" and "Next open" when the
