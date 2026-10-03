@@ -9,6 +9,8 @@
 <meta property="og:title" content="Bacup MX">
 <meta property="og:description" content="Open motocross riding for kids and adults in Bacup, Lancashire.">
 <meta property="og:type" content="website">
+<!-- Change to the full https:// address once the site has a domain; Facebook and WhatsApp need an absolute URL. -->
+<meta property="og:image" content="images/share.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
@@ -20,6 +22,7 @@
     <a class="logo" href="#top" aria-label="Bacup MX home"><span class="plate">BACUP MX</span></a>
     <ul>
       <li><a href="#riding">Riding</a></li>
+      <li><a href="#photos">Photos</a></li>
       <li><a href="#prices">Prices</a></li>
       <li><a href="#rules">Rules</a></li>
       <li><a href="#kit">Kit list</a></li>
@@ -53,6 +56,14 @@
     </div>
   </div>
 
+  <figure class="hero-photo">
+    <img src="images/riders-moor-1600.webp"
+         srcset="images/riders-moor-800.webp 800w, images/riders-moor-1600.webp 1600w"
+         sizes="100vw" width="1600" height="1200"
+         alt="An adult and a young rider in body armour riding side by side across the muddy top section, with wind turbines on the moors behind"
+         fetchpriority="high">
+  </figure>
+
   <section id="riding">
     <div class="wrap">
       <div class="head">
@@ -68,6 +79,64 @@
       </div>
     </div>
   </section>
+
+  <section id="photos">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Photos</p>
+        <h2>The track</h2>
+        <p>Moorland track high above Bacup, with tyre-lined turns, tabletops and views across to the wind farm. Tap a photo to see it bigger.</p>
+      </div>
+      <div class="gallery">
+        <figure class="shot tall">
+          <button type="button" class="shot-btn" data-full="images/top-jump-1600.webp" aria-label="View larger: Top straight">
+            <img src="images/top-jump-800.webp" width="600" height="800" alt="A rider takes off over a jump on the top straight, green fields and turbines behind" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Top straight</figcaption>
+        </figure>
+        <figure class="shot wide">
+          <button type="button" class="shot-btn" data-full="images/jump-sky-1600.webp" aria-label="View larger: Big air on the moor">
+            <img src="images/jump-sky-800.webp" style="object-position: 50% 22%" width="800" height="577" alt="Rider in a red jersey airborne over a jump against a grey sky" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Big air on the moor</figcaption>
+        </figure>
+        <figure class="shot tall">
+          <button type="button" class="shot-btn" data-full="images/jump-silhouette-1600.webp" aria-label="View larger: Pits and cabin from the track">
+            <img src="images/jump-silhouette-800.webp" width="600" height="800" alt="Rider silhouetted mid-jump, with the pits, cabin and digger in the background" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Pits and cabin from the track</figcaption>
+        </figure>
+        <figure class="shot tall">
+          <button type="button" class="shot-btn" data-full="images/muddy-rider-1600.webp" aria-label="View larger: Wet days are part of it">
+            <img src="images/muddy-rider-800.webp" style="object-position: 50% 15%" width="454" height="800" alt="Rider covered head to toe in mud after a wet session, standing in the cabin" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Wet days are part of it</figcaption>
+        </figure>
+        <figure class="shot tall">
+          <button type="button" class="shot-btn" data-full="images/track-tyres-1600.webp" aria-label="View larger: Tyre-lined turns">
+            <img src="images/track-tyres-800.webp" width="451" height="800" alt="Rider on a green bike following a tyre-lined turn on dry track" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Tyre-lined turns</figcaption>
+        </figure>
+        <figure class="shot wide">
+          <button type="button" class="shot-btn" data-full="images/jump-76-1600.webp" aria-label="View larger: Number 76 sending it">
+            <img src="images/jump-76-800.webp" style="object-position: 50% 30%" width="800" height="600" alt="Rider number 76 airborne over a jump" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Number 76 sending it</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+    <img id="lightbox-img" alt="">
+    <p id="lightbox-cap"></p>
+    <div class="lb-controls">
+      <button type="button" class="btn ghost" id="lb-prev" aria-label="Previous photo">Prev</button>
+      <button type="button" class="btn" id="lb-close">Close</button>
+      <button type="button" class="btn ghost" id="lb-next" aria-label="Next photo">Next</button>
+    </div>
+  </dialog>
 
   <section id="prices">
     <div class="wrap">
@@ -187,5 +256,6 @@
 <script src="js/config.js"></script>
 <script src="js/kit.js"></script>
 <script src="js/status.js"></script>
+<script src="js/gallery.js"></script>
 </body>
 </html>

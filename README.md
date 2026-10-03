@@ -13,6 +13,8 @@ It's a plain static site (HTML, CSS, a little JavaScript) with no build step. It
 | `js/config.js` | **The file you edit:** affiliate links and the track status sheet link |
 | `js/kit.js` | Builds the kit list cards |
 | `js/status.js` | Reads the track status from Google Sheets |
+| `js/gallery.js` | Tap-to-enlarge photo viewer for the gallery |
+| `images/` | Photos, saved as WebP at 1600px and 800px wide, with location data removed |
 
 ## Things still to fill in
 
@@ -23,6 +25,18 @@ Search `index.html` for `class="tbc"`. Each one is a placeholder shown in yellow
 - Noise limit
 - Address, postcode, what3words, phone, email
 - Licence and insurance requirements, first-aid cover (FAQ)
+
+## Photos
+
+The page has one large photo under the opening section (`riders-moor`) and a 6-photo gallery in the "The track" section.
+
+To add or swap a photo:
+
+1. Make two WebP copies, one about 1600px on the long side and one about 800px, named `name-1600.webp` and `name-800.webp`. Remove location (GPS) data from phone photos before uploading.
+2. Copy one of the `<figure class="shot ...">` blocks in `index.html` and change the file names, `alt` text and caption.
+3. Use class `tall` for portrait photos and `wide` for landscape ones. The current order (tall, wide, tall, tall, tall, wide) fills the grid with no gaps on both phone and desktop. If you change the mix, check there are no gaps.
+
+Avoid photos where car number plates or children's faces are clearly visible, unless you have the parents' permission.
 
 ## Affiliate links
 
