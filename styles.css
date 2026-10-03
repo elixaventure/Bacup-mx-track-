@@ -227,3 +227,9 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space
 .track-body p { color: var(--muted); }
 .track-body .eyebrow { color: var(--muted); }
 .track-note { font-size: 0.88rem; }
+
+/* Enduro photo strip (uses the gallery viewer) */
+.enduro-head { margin-top: 2rem; margin-bottom: 0.75rem; }
+.enduro-strip { display: grid; gap: 0.5rem; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 760px) { .enduro-strip { grid-template-columns: repeat(4, 1fr); gap: 0.75rem; } }
+.enduro-strip .shot { aspect-ratio: 3 / 4; }
