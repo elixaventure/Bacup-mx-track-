@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bacup MX | Motocross track in Bacup, Lancashire</title>
+<meta name="description" content="Bacup MX Track, OL13 8PQ. Motocross track, quarry enduro and a separate kids track in Bacup, Lancashire. No sessions, ride all day, rain or shine. Adults £30, kids from £15. All bikes welcome.">
+<!-- Pre-launch: keep out of search results. Delete this line (and robots.txt) at launch. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#111111">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta property="og:title" content="Bacup MX">
+<meta property="og:description" content="Motocross track and kids track in Bacup. No sessions, ride all day. All bikes welcome.">
+<meta property="og:type" content="website">
+<!-- Change to the full https:// address once the site has a domain; Facebook and WhatsApp need an absolute URL. -->
+<meta property="og:image" content="images/share.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="styles.css?v=20261004d">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Bacup MX home"><img src="images/logo-192.webp" width="48" height="48" alt=""><span class="logo-name">BACUP MX</span></a>
+    <a class="btn nav-cta" href="#prices">Ride today</a>
+    <nav class="tabs" aria-label="Page sections">
+      <ul>
+        <li><a href="#lap">Videos</a></li>
+        <li><a href="#tracks">Tracks</a></li>
+        <li><a href="#photos">Photos</a></li>
+        <li><a href="#prices">Prices &amp; times</a></li>
+        <li><a href="#rules">Rules</a></li>
+        <li><a href="#kit">Kit list</a></li>
+        <li><a href="#find-us">Find us</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Drone hero: the first thing visitors see -->
+  <div class="drone-hero">
+    <img src="images/drone-track-1600.webp"
+         srcset="images/drone-track-800.webp 800w, images/drone-track-1600.webp 1600w"
+         sizes="100vw" width="1600" height="900"
+         alt="Drone view of Bacup MX: the big track winding across the moor, the tyre-lined kids track on the left, and the cabin and pits in the foreground"
+         fetchpriority="high">
+    <div class="drone-copy">
+      <div class="wrap">
+        <img class="hero-logo" src="images/logo-512.webp" width="512" height="512" alt="Bacup MX Track logo">
+        <p class="eyebrow">Motocross track · Bacup, Lancashire</p>
+        <h1>Bacup MX</h1>
+        <p class="weather-pill">Open rain or shine</p>
+        <p class="lede">Motocross, enduro in an old quarry, and a separate kids track on the moors above Bacup. No sessions. Turn up, sign on and ride all day, whatever the weather.</p>
+        <div class="ctas">
+          <a class="btn" href="#prices">Prices and opening times</a>
+          <a class="btn ghost" href="#photos">See the track</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick facts: status plus the four things people ask first -->
+  <div class="quick">
+    <div class="wrap quick-grid">
+      <aside class="status" aria-label="Track status">
+        <p class="eyebrow">Track status</p>
+        <div class="status-row"><span>Today</span><span class="light" id="st-light" data-state="unknown"><span id="st-label">Check before you travel</span></span></div>
+        <div class="status-row"><span>Hours today</span><span id="st-hours">See opening times</span></div>
+        <div class="status-row"><span>Next open</span><span id="st-next">Tue, Wed, Fri–Sun</span></div>
+        <div class="status-row" id="st-signon-row" hidden><span>Sign-on closes</span><span id="st-signon"></span></div>
+        <p class="st-msg" id="st-msg" hidden></p>
+        <p class="note" id="st-updated">Normal opening hours shown. We ride in most weather and only close if conditions are unsafe. Any closure goes on Facebook first.</p>
+      </aside>
+      <ul class="facts">
+        <li><a href="#prices"><span class="fact-k">Ride from</span><span class="fact-v">£15</span><span class="fact-d">Adults £30 with enduro</span></a></li>
+        <li><a href="#find-us"><span class="fact-k">Postcode</span><span class="fact-v">OL13 8PQ</span><span class="fact-d">Access from Burnley Road</span></a></li>
+        <li><a href="#riding"><span class="fact-k">All bikes</span><span class="fact-v">Welcome</span><span class="fact-d">MX bikes, Surrons, quads</span></a></li>
+        <li><a href="#tracks"><span class="fact-k">Enduro</span><span class="fact-v">Included</span><span class="fact-d">Quarry and infield, same £30</span></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Helmet-cam lap: plays muted on loop; tap for sound -->
+  <section id="lap" class="lap">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Drone and helmet cam</p>
+        <h2>See the track</h2>
+      </div>
+      <div class="flyover" id="flyover" hidden>
+        <h3 class="flyover-head">From the drone</h3>
+        <div class="flyover-stage" id="flyover-stage"></div>
+        <p class="flyover-now" id="flyover-now"></p>
+        <ul class="flyover-strip" id="flyover-strip" aria-label="Choose a drone video"></ul>
+      </div>
+      <div class="lap-block">
+        <h3 id="yt2-title">On the track</h3>
+        <div class="flyover-stage" id="lap-stage"></div>
+      </div>
+      <div class="lap-block lap-cam">
+        <h3>Take a lap</h3>
+        <p>Ride the big track from the saddle: the start straight, the bridge, the berms and the top section. Tap the video for sound.</p>
+        <div class="lap-frame">
+          <video id="lap-video" poster="images/lap-pov-poster.webp" width="854" height="480" muted loop playsinline controls preload="metadata" aria-label="Helmet-camera video of a full lap of the Bacup MX track">
+            <source src="video/lap-pov.mp4" type="video/mp4">
+            <source src="video/lap-pov.webm" type="video/webm">
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three ways to ride -->
+  <section id="tracks" class="tracks">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Three ways to ride</p>
+        <h2>MX, enduro and a kids track</h2>
+        <p>One day at Bacup MX covers all three. Ride the big track, take on the enduro sections, or let the kids learn on their own track.</p>
+      </div>
+      <div class="track-cards">
+        <article class="track-card">
+          <img src="images/card-mx.webp" width="900" height="675" alt="A wide berm on the motocross track with green fields, a wood and wind turbines in the valley behind" loading="lazy" decoding="async">
+          <div class="track-body">
+            <p class="eyebrow">Big track</p>
+            <h3>Motocross</h3>
+            <p>A full MX track across the top of the moor: berms, tabletops, rollers and long straights, with views over Bacup and the wind farm.</p>
+          </div>
+        </article>
+        <article class="track-card">
+          <img src="images/card-enduro.webp" width="900" height="675" alt="The scaffold bridge on the enduro section silhouetted against the sunset" loading="lazy" decoding="async">
+          <div class="track-body">
+            <p class="eyebrow">Old quarry and infield</p>
+            <h3>Enduro</h3>
+            <p>An old quarry plus an enduro section in the middle of the MX track. Rocks, slabs and tyres for technical riding at your own pace.</p>
+            <p class="track-note"><strong>Included in the £30 day price.</strong></p>
+          </div>
+        </article>
+        <article class="track-card">
+          <img src="images/card-kids.webp" width="900" height="675" alt="Drone view of the tyre-lined kids track with its tight loops, next to the cabin" loading="lazy" decoding="async">
+          <div class="track-body">
+            <p class="eyebrow">Younger and newer riders</p>
+            <h3>Kids track</h3>
+            <p>Its own tyre-lined track, away from the big bikes, so kids can build confidence before they move up. £15 for the day.</p>
+          </div>
+        </article>
+      </div>
+      <h3 class="enduro-head">On the enduro</h3>
+      <div class="enduro-strip">
+        <figure class="shot">
+          <button type="button" class="shot-btn" data-full="images/enduro-quarry-1600.webp" aria-label="View larger: The old quarry">
+            <img src="images/enduro-quarry-800.webp" width="600" height="800" alt="The old quarry at sunset: rock faces and loose stone" loading="lazy" decoding="async">
+          </button>
+          <figcaption>The old quarry</figcaption>
+        </figure>
+        <figure class="shot">
+          <button type="button" class="shot-btn" data-full="images/enduro-bridge-1600.webp" aria-label="View larger: The bridge">
+            <img src="images/enduro-bridge-800.webp" width="600" height="800" alt="The scaffold bridge with the sun setting behind it" loading="lazy" decoding="async">
+          </button>
+          <figcaption>The bridge</figcaption>
+        </figure>
+        <figure class="shot">
+          <button type="button" class="shot-btn" data-full="images/enduro-steps-1600.webp" aria-label="View larger: Rock steps">
+            <img src="images/enduro-steps-800.webp" width="600" height="800" alt="Stacked stone steps on the enduro section in evening light" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Rock steps</figcaption>
+        </figure>
+        <figure class="shot">
+          <button type="button" class="shot-btn" data-full="images/enduro-view-1600.webp" aria-label="View larger: Slabs above Bacup">
+            <img src="images/enduro-view-800.webp" width="600" height="800" alt="Stone slabs on the enduro section with Bacup and the wind farm behind" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Slabs above Bacup</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="riding">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">How it works</p>
+        <h2>Ride all day, no sessions</h2>
+        <p>There are no timed sessions. Once you've signed on and paid, you can ride until we close. The rules below keep everyone safe when riders of different speeds share the track.</p>
+      </div>
+      <div class="grid">
+        <div class="card"><h3>Sign on</h3><p>Every rider signs the disclaimer at the gate before going on track. Under-18s need a parent or guardian to sign, and that adult stays on site.</p></div>
+        <div class="card"><h3>Kit check</h3><p>No helmet, boots, goggles or gloves means no riding. No excuses. See the <a href="#kit">kit list</a>.</p></div>
+        <div class="card"><h3>Kids track</h3><p>Younger and newer riders have their own kids track. Under-16s who are ready for more can ride the big track.</p></div>
+        <div class="card"><h3>All bikes welcome</h3><p>Motocross bikes, Surrons and quads. The same kit rules apply to everyone.</p></div>
+        <div class="card"><h3>Take breaks</h3><p>Come off track in the pit lane only. Leave the track slowly with your hand raised so riders behind know you're stopping.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parts to the track: order in the week, collect at the weekend. How to order is TBC with SaddMX. -->
+  <div class="wrap parts-lite">
+    <div class="parts-box">
+      <p class="eyebrow">No time to fix the bike?</p>
+      <h3>Order parts in the week, collect them at the track</h3>
+      <p>Working late all week and can't get to a shop? Get your parts order in during the week and it's brought to the track at the weekend. Fit it in the pits and you're out riding.</p>
+      <ol class="parts-mini">
+        <li><b>Order in the week</b> with your bike, model year and parts</li>
+        <li><b>Collect at the track</b> at the weekend</li>
+        <li><b>Fit it in the pits</b> and ride</li>
+      </ol>
+      <p class="parts-how">What's available, how to order and terms: <span class="tbc">TBC with SaddMX</span></p>
+    </div>
+  </div>
+
+  <section id="photos">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Photos</p>
+        <h2>The track</h2>
+        <p>High on the moor above Bacup: berms, tabletops, the quarry and views across to the wind farm. Tap a photo to see it bigger.</p>
+      </div>
+      <div class="gallery">
+        <figure class="shot full">
+          <button type="button" class="shot-btn" data-full="images/sky-jump-1600.webp" aria-label="View larger: Over the top jump on a summer day">
+            <img src="images/sky-jump-800.webp" width="800" height="533" alt="A rider high in the air over a jump against a clear blue sky, dust trailing below" loading="lazy" decoding="async" style="object-position: 50% 40%">
+          </button>
+          <figcaption>Over the top jump on a summer day</figcaption>
+        </figure>
+        <figure class="shot tall">
+          <button type="button" class="shot-btn" data-full="images/tyres-777-1600.webp" aria-label="View larger: Number 777 past the tyres">
+            <img src="images/tyres-777-800.webp" width="533" height="800" alt="Rider number 777 on a Husqvarna cornering past a line of tyres, quarry rock behind" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Number 777 past the tyres</figcaption>
+        </figure>
+        <figure class="shot wide">
+          <button type="button" class="shot-btn" data-full="images/wet-day-pack-1600.webp" aria-label="View larger: Kids and adults out on a wet day">
+            <img src="images/wet-day-pack-800.webp" width="800" height="600" alt="Four riders, including a young rider on a small bike, on the muddy track with the wind farm and Bacup behind" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Kids and adults out on a wet day</figcaption>
+        </figure>
+        <figure class="shot tall">
+          <button type="button" class="shot-btn" data-full="images/first-rides-1600.webp" aria-label="View larger: First rides start young">
+            <img src="images/first-rides-800.webp" width="600" height="800" alt="A young child in a helmet and body armour sitting on a bike in front of a smiling adult rider" loading="lazy" decoding="async" style="object-position: 50% 30%">
+          </button>
+          <figcaption>First rides start young</figcaption>
+        </figure>
+        <figure class="shot tall">
+          <button type="button" class="shot-btn" data-full="images/top-jump-1600.webp" aria-label="View larger: Top straight">
+            <img src="images/top-jump-800.webp" width="600" height="800" alt="A rider takes off over a jump on the top straight, green fields and turbines behind" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Top straight</figcaption>
+        </figure>
+        <figure class="shot tall">
+          <button type="button" class="shot-btn" data-full="images/muddy-rider-1600.webp" aria-label="View larger: Rain or shine, we ride">
+            <img src="images/muddy-rider-800.webp" width="454" height="800" alt="Rider covered head to toe in mud after a wet session, standing in the cabin" loading="lazy" decoding="async" style="object-position: 50% 15%">
+          </button>
+          <figcaption>Rain or shine, we ride</figcaption>
+        </figure>
+        <figure class="shot wide">
+          <button type="button" class="shot-btn" data-full="images/top-jump-cloud-1600.webp" aria-label="View larger: Popping the jump above Bacup">
+            <img src="images/top-jump-cloud-800.webp" width="800" height="600" alt="A rider in a hoodie lifting off a jump with the valley and Bacup behind under a grey sky" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Popping the jump above Bacup</figcaption>
+        </figure>
+        <figure class="shot full">
+          <button type="button" class="shot-btn" data-full="images/air-76-1600.webp" aria-label="View larger: Number 76, big air">
+            <img src="images/air-76-800.webp" width="800" height="600" alt="Rider number 76 in a hi-vis jersey high in the air over a jump against a cloudy sky" loading="lazy" decoding="async" style="object-position: 50% 45%">
+          </button>
+          <figcaption>Number 76, big air</figcaption>
+        </figure>
+        <figure class="shot full">
+          <button type="button" class="shot-btn" data-full="images/drone-wide-1600.webp" aria-label="View larger: The whole track from above">
+            <img src="images/drone-wide-800.webp" width="800" height="450" alt="Drone view of the whole track with the scaffold bridge in the middle, Bacup town and the moors beyond" loading="lazy" decoding="async">
+          </button>
+          <figcaption>The whole track from above</figcaption>
+        </figure>
+        <figure class="shot tall">
+          <button type="button" class="shot-btn" data-full="images/jump-silhouette-1600.webp" aria-label="View larger: Pits and cabin from the track">
+            <img src="images/jump-silhouette-800.webp" width="600" height="800" alt="Rider silhouetted mid-jump, with the pits, cabin and digger in the background" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Pits and cabin from the track</figcaption>
+        </figure>
+        <figure class="shot tall">
+          <button type="button" class="shot-btn" data-full="images/golden-berm-1600.webp" aria-label="View larger: Golden hour on the top berm">
+            <img src="images/golden-berm-800.webp" width="600" height="800" alt="A wide berm in evening light, with fencing and the Rossendale valley and Bacup below" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Golden hour on the top berm</figcaption>
+        </figure>
+        <figure class="shot tall">
+          <button type="button" class="shot-btn" data-full="images/back-straight-1600.webp" aria-label="View larger: The back straight at sunset">
+            <img src="images/back-straight-800.webp" width="600" height="800" alt="The back straight at sunset, with the scaffold bridge on the left and the moors behind" loading="lazy" decoding="async">
+          </button>
+          <figcaption>The back straight at sunset</figcaption>
+        </figure>
+        <figure class="shot tall">
+          <button type="button" class="shot-btn" data-full="images/tabletop-sunset-1600.webp" aria-label="View larger: Tabletop at sunset">
+            <img src="images/tabletop-sunset-800.webp" width="600" height="800" alt="A big tabletop jump silhouetted against an orange sunset" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Tabletop at sunset</figcaption>
+        </figure>
+        <figure class="shot tall">
+          <button type="button" class="shot-btn" data-full="images/rollers-bacup-1600.webp" aria-label="View larger: Rollers above Bacup">
+            <img src="images/rollers-bacup-800.webp" width="600" height="800" alt="Rollers on the track looking down over the houses of Bacup and the valley" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Rollers above Bacup</figcaption>
+        </figure>
+        <figure class="shot tall">
+          <button type="button" class="shot-btn" data-full="images/track-tyres-1600.webp" aria-label="View larger: Tyre-lined turns">
+            <img src="images/track-tyres-800.webp" width="451" height="800" alt="Rider on a green bike following a tyre-lined turn on dry track" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Tyre-lined turns</figcaption>
+        </figure>
+        <figure class="shot full">
+          <button type="button" class="shot-btn" data-full="images/jump-sky-1600.webp" aria-label="View larger: Up on the moor">
+            <img src="images/jump-sky-800.webp" width="800" height="577" alt="Rider in a red jersey riding over a jump against a grey sky" loading="lazy" decoding="async" style="object-position: 50% 22%">
+          </button>
+          <figcaption>Up on the moor</figcaption>
+        </figure>
+        <figure class="shot full">
+          <button type="button" class="shot-btn" data-full="images/drone-quarry-1600.webp" aria-label="View larger: The quarry and the kids track">
+            <img src="images/drone-quarry-800.webp" width="800" height="450" alt="Drone view of the old quarry with a digger, the main track beyond and the kids track on the right" loading="lazy" decoding="async">
+          </button>
+          <figcaption>The quarry and the kids track</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+    <img id="lightbox-img" alt="">
+    <p id="lightbox-cap"></p>
+    <div class="lb-controls">
+      <button type="button" class="btn ghost" id="lb-prev" aria-label="Previous photo">Prev</button>
+      <button type="button" class="btn" id="lb-close">Close</button>
+      <button type="button" class="btn ghost" id="lb-next" aria-label="Next photo">Next</button>
+    </div>
+  </dialog>
+
+  <section id="prices">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Prices</p>
+        <h2>Prices and opening times</h2>
+        <p>Prices are per rider for the full day. Pay at the gate when you sign on.</p>
+      </div>
+      <div class="grid">
+        <div class="card"><p class="eyebrow">Adult</p><p class="price">£30</p><p>Big track and enduro, all day.</p></div>
+        <div class="card"><p class="eyebrow">Under 16 · big track</p><p class="price">£20</p><p>All day on the big track. Parent or guardian stays on site.</p></div>
+        <div class="card"><p class="eyebrow">Kids track</p><p class="price">£15</p><p>All day on the kids track for younger and newer riders.</p></div>
+        <div class="card"><p class="eyebrow">Parent and child</p><p class="price">£40</p><p>One adult and one under-16 riding together. Dad and lad, mum and daughter, any pairing.</p></div>
+      </div>
+      <div class="hours">
+        <div class="table-wrap">
+          <table class="hours-table">
+            <caption>Opening times</caption>
+            <tbody id="hours-body">
+              <tr data-day="1"><th scope="row">Monday</th><td>Closed</td></tr>
+              <tr data-day="2"><th scope="row">Tuesday</th><td>09:00–16:00</td></tr>
+              <tr data-day="3"><th scope="row">Wednesday</th><td>10:00–20:00</td></tr>
+              <tr data-day="4"><th scope="row">Thursday</th><td>Closed</td></tr>
+              <tr data-day="5"><th scope="row">Friday</th><td>10:00–18:00</td></tr>
+              <tr data-day="6"><th scope="row">Saturday</th><td>09:00–16:00</td></tr>
+              <tr data-day="0"><th scope="row">Sunday</th><td>09:00–16:00</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <h3>Good to know</h3>
+          <p>Spectators are free.</p>
+          <p>Pay at the gate. Online payment <span class="tbc">TBC</span></p>
+          <p><strong>Open rain or shine.</strong> Expect mud on wet days. We only close if conditions are unsafe, and closures go on Facebook first.</p>
+          <!-- JOKE: café wind-up. Delete this paragraph to remove it. -->
+          <p class="cafe-joke"><strong>Track café lead times:</strong> brews 1 hour+, bacon butties 6 hours+. Please plan ahead. ☕🥓</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rules">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Rules and safety</p>
+        <h2>Track rules</h2>
+        <p>Under-16s can ride the big track alongside adults, so these rules are not optional. Track staff can send anyone off for riding dangerously.</p>
+      </div>
+      <div class="rules">
+        <div class="card">
+          <h3>On track</h3>
+          <ol>
+            <li>Ride in the direction of the track only.</li>
+            <li>Never stop on a jump landing or blind corner.</li>
+            <li>Pass slower and younger riders wide and with care.</li>
+            <li>When flags are out, obey every flag and marshal straight away.</li>
+            <li>No marshal on your section? If someone comes off, slow down, warn riders behind and help them off the track.</li>
+            <li>No passengers, and no riding in the pits faster than walking pace.</li>
+            <li>No alcohol on site for riders.</li>
+          </ol>
+        </div>
+        <div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Rider age</th><th>Typical bike size</th></tr></thead>
+              <tbody>
+                <tr><td>Under 8</td><td>50cc auto or small electric</td></tr>
+                <tr><td>7–11</td><td>65cc</td></tr>
+                <tr><td>9–15</td><td>85cc</td></tr>
+                <tr><td>14+</td><td>125cc 2T / 250cc 4T</td></tr>
+                <tr><td>16+</td><td>Any adult bike</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">There is no minimum age. This is only a general guide to bike size, based on common UK youth classes. Ask at sign-on if you're unsure whether your rider and bike are a good match.</p>
+        </div>
+      </div>
+
+      <div class="head" style="margin-top:3rem">
+        <p class="eyebrow">Flags · in operation on busy days</p>
+        <h3>Know your flags before you ride</h3>
+        <p>Flags and marshals are out on busy days, not every day. Learn them anyway, so you know what to do the moment one goes up.</p>
+      </div>
+      <div class="flags">
+        <div class="flag"><i class="f-green" aria-hidden="true"></i><div><b>Green</b><p>Track is clear. Ride.</p></div></div>
+        <div class="flag"><i class="f-yellow" aria-hidden="true"></i><div><b>Yellow</b><p>Danger ahead. Slow down, no jumping, no passing.</p></div></div>
+        <div class="flag"><i class="f-red" aria-hidden="true"></i><div><b>Red</b><p>Stop riding. Pull over safely and wait.</p></div></div>
+        <div class="flag"><i class="f-black" aria-hidden="true"></i><div><b>Black</b><p>You've been called off. Leave the track and see a marshal.</p></div></div>
+        <div class="flag"><i class="f-white" aria-hidden="true"></i><div><b>White</b><p>Medical or recovery vehicle on track. Ride with extreme care.</p></div></div>
+        <div class="flag"><i class="f-cheq" aria-hidden="true"></i><div><b>Chequered</b><p>Track closing. Finish your lap and come off.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kit">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Kit list</p>
+        <h2>What you need to ride</h2>
+        <p>No helmet, boots, goggles or gloves means no riding. Those four are marked <strong>Required</strong>. If you're kitting out a new rider, start at the top and work down.</p>
+      </div>
+      <div class="kit" id="kit-list"></div>
+      <p class="disclosure"><strong>Affiliate disclosure:</strong> the shop links on this page are affiliate links. If you buy through them, Bacup MX may earn a small commission at no extra cost to you. We only list kit we'd let our own kids ride in. Always check sizing and safety ratings before you buy.</p>
+    </div>
+  </section>
+
+  <section id="find-us">
+    <div class="wrap split">
+      <div>
+        <div class="head">
+          <p class="eyebrow">Find us</p>
+          <h2>Getting here</h2>
+        </div>
+        <dl>
+          <div><dt>Postcode</dt><dd><strong>OL13 8PQ</strong>, Bacup, Lancashire. Access from Burnley Road. <a href="https://www.google.com/maps/search/?api=1&amp;query=OL13+8PQ" target="_blank" rel="noopener">Open in Google Maps</a></dd></div>
+          <div><dt>Directions</dt><dd>Turn off Burnley Road by Bacup Community Centre and follow the lane up past Broadclough to the track.</dd></div>
+          <div class="map-wrap"><img class="directions-map" src="images/directions-map.webp" width="676" height="1072" alt="Map of the route: from Burnley Road at Bacup Community Centre, up the lane past Bluebell Wood Fishery and Broadclough, to Bacup MX at the top" loading="lazy" decoding="async"></div>
+          <div><dt>Parking</dt><dd>Park in the pits area. Vans and trailers welcome.</dd></div>
+          <div><dt>Contact</dt><dd>
+            <div class="contact-btns">
+              <a class="btn wa-btn" href="https://wa.me/447466067851?text=Hi%20Bacup%20MX%2C%20" target="_blank" rel="noopener"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.2A9.7 9.7 0 0 0 3.7 16.9L2.3 21.7l4.9-1.3A9.7 9.7 0 1 0 12 2.2Zm0 17.6a7.9 7.9 0 0 1-4-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A7.9 7.9 0 1 1 12 19.8Zm4.4-5.9c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.2-.2-.5-.3Z" fill="currentColor"/></svg><span>Message us on WhatsApp</span></a>
+              <a class="btn ghost" href="tel:+447466067851">Call 07466 067851</a>
+            </div>
+            Facebook: MX Track Bacup <span class="tbc">link TBC</span></dd></div>
+        </dl>
+      </div>
+      <div id="faq">
+        <div class="head">
+          <p class="eyebrow">FAQ</p>
+          <h2>Before you come</h2>
+        </div>
+        <details><summary>Do I need to book?</summary><p>No. Open riding is turn up and ride. Check the track status before you travel.</p></details>
+        <details><summary>Can complete beginners ride?</summary><p>Yes, as long as you have helmet, boots, goggles and gloves and can control your bike. Younger and newer riders start on the kids track.</p></details>
+        <details><summary>Can I get parts at the track?</summary><p>Yes. Order your parts during the week and collect them at the track at the weekend, so you can fit them in the pits and ride. <span class="tbc">How to order TBC with SaddMX</span></p></details>
+        <details><summary>Do you close when it rains?</summary><p>No. We're open rain or shine, so expect mud on wet days. We only close if conditions are unsafe, and we post it on Facebook first.</p></details>
+        <details><summary>Can I bring a Surron or a quad?</summary><p>Yes. All bikes are welcome: motocross bikes, Surrons and quads.</p></details>
+        <details><summary>Do I need a licence?</summary><p>No. You don't need an ACU or AMCA licence to ride at Bacup MX.</p></details>
+        <details><summary>Is there first aid on site?</summary><p>Yes, there's first aid on site.</p></details>
+        <details><summary>Can I hire a bike or kit?</summary><p>Not at the moment. See the <a href="#kit">kit list</a> for what to buy.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<a class="wa-float" href="https://wa.me/447466067851?text=Hi%20Bacup%20MX%2C%20" target="_blank" rel="noopener" aria-label="Message Bacup MX on WhatsApp"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.2A9.7 9.7 0 0 0 3.7 16.9L2.3 21.7l4.9-1.3A9.7 9.7 0 1 0 12 2.2Zm0 17.6a7.9 7.9 0 0 1-4-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A7.9 7.9 0 1 1 12 19.8Zm4.4-5.9c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.2-.2-.5-.3Z" fill="currentColor"/></svg></a>
+
+<footer>
+  <div class="wrap">
+    <span>© Bacup MX · OL13 8PQ · <a href="tel:+447466067851">07466 067851</a>. Motorsport is dangerous. All riders ride at their own risk.</span>
+    <span>Kit links may earn us a commission.</span>
+  </div>
+</footer>
+
+<script src="js/config.js?v=20261004d"></script>
+<script src="js/kit.js?v=20261004d"></script>
+<script src="js/status.js?v=20261004d"></script>
+<script src="js/gallery.js?v=20261004d"></script>
+<script src="js/nav.js?v=20261004d"></script>
+<script src="js/lap.js?v=20261004d"></script>
+<script src="js/flyover.js?v=20261004d"></script>
+</body>
+</html>
