@@ -216,3 +216,14 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space
 
 /* Rain-or-shine badge in the hero */
 .weather-pill { display: inline-block; margin-top: 0.6rem; padding: 0.3rem 0.7rem; border: 2px solid #ffd21f; border-radius: 999px; color: #ffd21f; font-family: var(--display); font-weight: 700; font-size: clamp(1.1rem, 3.5vw, 1.4rem); text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* Three ways to ride */
+.tracks + section { border-top: 0; }
+.track-cards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+.track-card { display: grid; grid-template-rows: auto 1fr; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; min-width: 0; }
+.track-card img { display: block; width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; }
+.track-body { display: grid; gap: 0.5rem; align-content: start; padding: 1.25rem; }
+.track-body h3 { font-size: 2rem; font-weight: 900; }
+.track-body p { color: var(--muted); }
+.track-body .eyebrow { color: var(--muted); }
+.track-note { font-size: 0.88rem; }
