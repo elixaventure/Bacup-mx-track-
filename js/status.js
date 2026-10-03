@@ -1,7 +1,7 @@
 // Track status box.
 // 1. Always shows today's normal hours from openingHours in js/config.js.
 // 2. If a Google Sheet is set up and has today's date, the sheet wins
-//    (e.g. "closed" for weather, a message, a sign-on time).
+//    (e.g. "closed" for unsafe conditions, a message, a sign-on time).
 //
 // Sheet layout: row 1 headers, row 2 values:
 //   status | message | hours | sign_on | date
