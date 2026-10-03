@@ -285,7 +285,7 @@ footer { padding-bottom: 5.5rem; }
 .lap-frame video { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 /* Drone videos (YouTube, loaded on tap) */
-.flyover { margin-top: 2rem; }
+.flyover { margin-bottom: 2.5rem; }
 .flyover-head { margin-bottom: 0.75rem; }
 .flyover-btn, .flyover-frame { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; max-width: 100%; border: 0; padding: 0; border-radius: 12px; overflow: hidden; background: #000; cursor: pointer; }
 .flyover-btn img { display: block; width: 100%; height: 100%; object-fit: cover; opacity: 0.88; transition: opacity 0.2s; }
@@ -299,3 +299,6 @@ footer { padding-bottom: 5.5rem; }
 .flyover-card img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; border: 3px solid transparent; background: var(--line); }
 .flyover-card[aria-current="true"] img { border-color: var(--plate); }
 .flyover-card[aria-current="true"] span { font-weight: 700; }
+
+.lap-block { display: grid; gap: 0.6rem; }
+.lap-block .lap-frame { margin-top: 0.4rem; }

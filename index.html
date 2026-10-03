@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="styles.css?v=20261004a">
+<link rel="stylesheet" href="styles.css?v=20261004b">
 </head>
 <body>
 <header class="nav">
@@ -27,7 +27,7 @@
     <a class="btn nav-cta" href="#prices">Ride today</a>
     <nav class="tabs" aria-label="Page sections">
       <ul>
-        <li><a href="#lap">Take a lap</a></li>
+        <li><a href="#lap">Videos</a></li>
         <li><a href="#tracks">Tracks</a></li>
         <li><a href="#photos">Photos</a></li>
         <li><a href="#prices">Prices &amp; times</a></li>
@@ -88,21 +88,24 @@
   <section id="lap" class="lap">
     <div class="wrap">
       <div class="head">
-        <p class="eyebrow">Helmet cam · full lap</p>
-        <h2>Take a lap</h2>
-        <p>Ride the big track from the saddle: the start straight, the bridge, the berms and the top section. Tap the video for sound.</p>
-      </div>
-      <div class="lap-frame">
-        <video id="lap-video" poster="images/lap-pov-poster.webp" width="854" height="480" muted loop playsinline controls preload="metadata" aria-label="Helmet-camera video of a full lap of the Bacup MX track">
-          <source src="video/lap-pov.mp4" type="video/mp4">
-          <source src="video/lap-pov.webm" type="video/webm">
-        </video>
+        <p class="eyebrow">Drone and helmet cam</p>
+        <h2>See the track</h2>
       </div>
       <div class="flyover" id="flyover" hidden>
         <h3 class="flyover-head">From the drone</h3>
         <div class="flyover-stage" id="flyover-stage"></div>
         <p class="flyover-now" id="flyover-now"></p>
         <ul class="flyover-strip" id="flyover-strip" aria-label="Choose a drone video"></ul>
+      </div>
+      <div class="lap-block">
+        <h3>Take a lap</h3>
+        <p>Ride the big track from the saddle: the start straight, the bridge, the berms and the top section. Tap the video for sound.</p>
+        <div class="lap-frame">
+          <video id="lap-video" poster="images/lap-pov-poster.webp" width="854" height="480" muted loop playsinline controls preload="metadata" aria-label="Helmet-camera video of a full lap of the Bacup MX track">
+            <source src="video/lap-pov.mp4" type="video/mp4">
+            <source src="video/lap-pov.webm" type="video/webm">
+          </video>
+        </div>
       </div>
     </div>
   </section>
@@ -479,12 +482,12 @@
   </div>
 </footer>
 
-<script src="js/config.js?v=20261004a"></script>
-<script src="js/kit.js?v=20261004a"></script>
-<script src="js/status.js?v=20261004a"></script>
-<script src="js/gallery.js?v=20261004a"></script>
-<script src="js/nav.js?v=20261004a"></script>
-<script src="js/lap.js?v=20261004a"></script>
-<script src="js/flyover.js?v=20261004a"></script>
+<script src="js/config.js?v=20261004b"></script>
+<script src="js/kit.js?v=20261004b"></script>
+<script src="js/status.js?v=20261004b"></script>
+<script src="js/gallery.js?v=20261004b"></script>
+<script src="js/nav.js?v=20261004b"></script>
+<script src="js/lap.js?v=20261004b"></script>
+<script src="js/flyover.js?v=20261004b"></script>
 </body>
 </html>
