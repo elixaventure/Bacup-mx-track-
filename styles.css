@@ -234,12 +234,11 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space
 @media (min-width: 760px) { .enduro-strip { grid-template-columns: repeat(4, 1fr); gap: 0.75rem; } }
 .enduro-strip .shot { aspect-ratio: 3 / 4; }
 
-/* Low-key parts note (until the delivery arrangement is agreed) */
-.parts-lite { padding-block: 0 1.5rem; }
-.parts-lite p { max-width: none; padding: 0.9rem 1.1rem; border-left: 4px solid var(--plate); background: var(--surface); border-radius: 0 8px 8px 0; color: var(--muted); }
-.parts-lite strong { color: var(--ink); }
-
-/* Logo */
-.logo img { display: block; width: 48px; height: 48px; border-radius: 50%; }
-.logo-name { font-family: var(--display); font-weight: 900; font-size: 1.5rem; line-height: 1; letter-spacing: 0.02em; }
-.hero-logo { display: block; width: clamp(7rem, 22vw, 11rem); height: auto; margin-bottom: 1rem; filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.5)); }
+/* Parts to the track: order in the week, collect at the weekend */
+.parts-lite { padding-block: 0 2rem; }
+.parts-box { display: grid; gap: 0.6rem; padding: 1.25rem; border-left: 4px solid var(--plate); background: var(--surface); border-radius: 0 10px 10px 0; }
+.parts-box h3 { font-size: clamp(1.5rem, 4.5vw, 2rem); }
+.parts-box p { color: var(--muted); }
+.parts-mini { margin: 0.25rem 0 0; padding-left: 1.3rem; display: grid; gap: 0.3rem; }
+.parts-mini b { color: var(--ink); }
+.parts-how { font-size: 0.9rem; }
