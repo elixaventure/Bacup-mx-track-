@@ -16,6 +16,11 @@ It's a plain static site (HTML, CSS, a little JavaScript) with no build step. It
 | `js/gallery.js` | Tap-to-enlarge photo viewer for the gallery |
 | `images/` | Photos, saved as WebP at 1600px and 800px wide, with location data removed |
 
+## Before launch
+
+- Remove the `noindex` line from the top of `index.html` and change `robots.txt` to allow search engines. Until then the site stays out of Google.
+- Set `og:image` to the full https address.
+
 ## Things still to fill in
 
 Search `index.html` for `class="tbc"`. Each one is a placeholder shown in yellow on the site:

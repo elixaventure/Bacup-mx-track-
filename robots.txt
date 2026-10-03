@@ -1,0 +1,3 @@
+# Pre-launch: keep search engines out. Replace with "Allow: /" at launch.
+User-agent: *
+Disallow: /
