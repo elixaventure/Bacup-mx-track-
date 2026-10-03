@@ -34,18 +34,29 @@
 </header>
 
 <main id="top">
-  <div class="hero">
-    <div class="wrap">
-      <div>
+  <!-- Drone hero: the first thing visitors see -->
+  <div class="drone-hero">
+    <img src="images/drone-track-1600.webp"
+         srcset="images/drone-track-800.webp 800w, images/drone-track-1600.webp 1600w"
+         sizes="100vw" width="1600" height="900"
+         alt="Drone view of Bacup MX: the big track winding across the moor, the tyre-lined kids track on the left, and the cabin and pits in the foreground"
+         fetchpriority="high">
+    <div class="drone-copy">
+      <div class="wrap">
         <p class="eyebrow">Motocross track · Bacup, Lancashire</p>
-        <h1>Bacup MX <span>Open riding</span></h1>
-        <p class="lede">A big motocross track and a separate kids track on the moors above Bacup. No sessions to book. Turn up, sign on and ride all day. Motocross bikes, Surrons and quads all welcome.</p>
+        <h1>Bacup MX</h1>
+        <p class="lede">A big motocross track and a separate kids track on the moors above Bacup. No sessions. Turn up, sign on and ride all day.</p>
         <div class="ctas">
           <a class="btn" href="#prices">Prices and opening times</a>
-          <a class="btn ghost" href="#kit">What kit do I need?</a>
+          <a class="btn ghost" href="#photos">See the track</a>
         </div>
-        <a class="delivery-flag" href="#parts"><strong>Broken something?</strong> Parts delivered to the track. Don't go home early.</a>
       </div>
+    </div>
+  </div>
+
+  <!-- Quick facts: status plus the four things people ask first -->
+  <div class="quick">
+    <div class="wrap quick-grid">
       <aside class="status" aria-label="Track status">
         <p class="eyebrow">Track status</p>
         <div class="status-row"><span>Today</span><span class="light" id="st-light" data-state="unknown"><span id="st-label">Check before you travel</span></span></div>
@@ -55,16 +66,14 @@
         <p class="st-msg" id="st-msg" hidden></p>
         <p class="note" id="st-updated">Normal opening hours shown. We close in heavy rain to protect the track, so check Facebook before you set off.</p>
       </aside>
+      <ul class="facts">
+        <li><a href="#prices"><span class="fact-k">Ride from</span><span class="fact-v">£15</span><span class="fact-d">Adults £30 all day</span></a></li>
+        <li><a href="#find-us"><span class="fact-k">Postcode</span><span class="fact-v">OL13 8PQ</span><span class="fact-d">Access from Burnley Road</span></a></li>
+        <li><a href="#riding"><span class="fact-k">All bikes</span><span class="fact-v">Welcome</span><span class="fact-d">MX bikes, Surrons, quads</span></a></li>
+        <li><a href="#parts"><span class="fact-k">Broken something?</span><span class="fact-v">Parts</span><span class="fact-d">Delivered to the track</span></a></li>
+      </ul>
     </div>
   </div>
-
-  <figure class="hero-photo">
-    <img src="images/riders-moor-1600.webp"
-         srcset="images/riders-moor-800.webp 800w, images/riders-moor-1600.webp 1600w"
-         sizes="100vw" width="1600" height="1200"
-         alt="An adult and a young rider in body armour riding side by side across the muddy top section, with wind turbines on the moors behind"
-         fetchpriority="high">
-  </figure>
 
   <section id="riding">
     <div class="wrap">
@@ -144,10 +153,10 @@
           <figcaption>Tyre-lined turns</figcaption>
         </figure>
         <figure class="shot wide">
-          <button type="button" class="shot-btn" data-full="images/jump-76-1600.webp" aria-label="View larger: Number 76 sending it">
-            <img src="images/jump-76-800.webp" style="object-position: 50% 30%" width="800" height="600" alt="Rider number 76 airborne over a jump" loading="lazy" decoding="async">
+          <button type="button" class="shot-btn" data-full="images/riders-moor-1600.webp" aria-label="View larger: Riding the top section">
+            <img src="images/riders-moor-800.webp" width="800" height="600" alt="An adult and a young rider in body armour riding side by side across the muddy top section, with wind turbines on the moors behind" loading="lazy" decoding="async" style="object-position: 50% 62%">
           </button>
-          <figcaption>Number 76 sending it</figcaption>
+          <figcaption>Riding the top section</figcaption>
         </figure>
       </div>
     </div>

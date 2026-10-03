@@ -66,14 +66,6 @@ p { margin: 0; max-width: 65ch; }
 .btn:hover { filter: brightness(0.95); }
 .btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
 
-/* Hero */
-.hero { padding-block: 3rem 2.5rem; }
-.hero .wrap { display: grid; gap: 2rem; grid-template-columns: 1fr; align-items: end; }
-@media (min-width: 900px) { .hero .wrap { grid-template-columns: 1.5fr 1fr; } }
-.hero h1 { font-size: clamp(3.6rem, 13vw, 8.5rem); line-height: 0.85; }
-.hero h1 span { display: block; color: var(--mud); }
-.hero .lede { font-size: 1.15rem; margin-top: 1.25rem; }
-.hero .ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
 .status { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.25rem; display: grid; gap: 0.9rem; min-width: 0; }
 .status-row { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px dashed var(--line); padding-bottom: 0.6rem; font-variant-numeric: tabular-nums; }
 .status-row:last-child { border-bottom: 0; padding-bottom: 0; }
@@ -148,8 +140,6 @@ footer { border-top: 1px solid var(--line); padding-block: 2rem; font-size: 0.88
 footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; }
 
 /* Photos */
-.hero-photo { margin: 0; }
-.hero-photo img { display: block; width: 100%; height: clamp(14rem, 42vw, 34rem); object-fit: cover; object-position: center 62%; }
 
 .gallery { display: grid; gap: 0.5rem; grid-template-columns: repeat(2, 1fr); grid-auto-rows: clamp(9rem, 28vw, 15rem); grid-auto-flow: dense; }
 @media (min-width: 760px) { .gallery { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; } }
@@ -181,9 +171,6 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space
 .hours .card p { color: var(--muted); }
 
 /* Parts delivery: the one full-bleed yellow band on the page */
-.delivery-flag { display: inline-block; margin-top: 1.25rem; padding: 0.55rem 0.8rem; border-radius: 6px; background: var(--ink); color: var(--bg); text-decoration: none; font-size: 0.95rem; }
-.delivery-flag strong { color: var(--plate); }
-.delivery-flag:hover { text-decoration: underline; text-underline-offset: 3px; }
 .parts { background: var(--plate); color: var(--plate-ink); border-top: 0; }
 .parts .eyebrow { color: var(--plate-ink); opacity: 0.75; }
 .parts .tbc { background: rgba(0, 0, 0, 0.1); color: var(--plate-ink); }
@@ -202,3 +189,27 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space
 .parts-steps b { font-family: var(--display); font-size: 1.35rem; text-transform: uppercase; line-height: 1.1; }
 .parts-steps span { font-size: 0.93rem; color: #c9ccc5; }
 .parts + section { border-top: 0; }
+
+/* Drone hero. Copy sits on a dark scrim over the photo, so its colours are fixed rather than themed. */
+.drone-hero { position: relative; display: grid; min-height: clamp(30rem, 78vh, 46rem); background: #1a1e1c; overflow: hidden; }
+.drone-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; }
+.drone-copy { position: relative; align-self: end; padding-block: 6rem 2.25rem; background: linear-gradient(to top, rgba(8, 10, 9, 0.88) 0%, rgba(8, 10, 9, 0.55) 55%, rgba(8, 10, 9, 0) 100%); color: #f4f4ef; }
+.drone-copy .eyebrow { color: #e2e5de; }
+.drone-copy h1 { font-size: clamp(4rem, 15vw, 9.5rem); line-height: 0.85; color: #ffd21f; }
+.drone-copy .lede { font-size: 1.15rem; margin-top: 0.9rem; color: #f4f4ef; }
+.drone-copy .ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.4rem; }
+.drone-copy .btn.ghost { color: #f4f4ef; border-color: #f4f4ef; }
+
+/* Quick facts strip */
+.quick { padding-block: 1.5rem; }
+.quick-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .quick-grid { grid-template-columns: 1fr 1.6fr; align-items: stretch; } }
+.facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(2, 1fr); min-width: 0; }
+.facts a { display: grid; gap: 0.15rem; height: 100%; align-content: start; padding: 1rem; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); text-decoration: none; }
+.facts a:hover { border-color: var(--ink); }
+.fact-k { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.fact-v { white-space: nowrap; font-family: var(--display); font-weight: 900; font-size: clamp(1.5rem, 5.5vw, 2.6rem); line-height: 1; text-transform: uppercase; }
+.fact-d { font-size: 0.88rem; color: var(--muted); }
+.facts li:last-child a { background: var(--plate); border-color: var(--plate); }
+.facts li:last-child .fact-k, .facts li:last-child .fact-d, .facts li:last-child .fact-v { color: var(--plate-ink); }
+.quick + section { border-top: 0; }
