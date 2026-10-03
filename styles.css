@@ -275,3 +275,6 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space
 .wa-float .wa-icon { width: 1.9rem; height: 1.9rem; }
 .wa-float:hover { filter: brightness(0.93); }
 footer { padding-bottom: 5.5rem; }
+
+/* Full-width gallery photos (big action and drone shots) */
+.shot.full { grid-column: 1 / -1; grid-row: span 2; }
