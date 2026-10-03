@@ -242,3 +242,8 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space
 .parts-mini { margin: 0.25rem 0 0; padding-left: 1.3rem; display: grid; gap: 0.3rem; }
 .parts-mini b { color: var(--ink); }
 .parts-how { font-size: 0.9rem; }
+
+/* Logo */
+.logo img { display: block; width: 48px; height: 48px; border-radius: 50%; }
+.logo-name { font-family: var(--display); font-weight: 900; font-size: 1.5rem; line-height: 1; letter-spacing: 0.02em; }
+.hero-logo { display: block; width: clamp(7rem, 22vw, 11rem); height: auto; margin-bottom: 1rem; filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.5)); }
