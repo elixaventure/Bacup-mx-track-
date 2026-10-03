@@ -303,3 +303,7 @@ footer { padding-bottom: 5.5rem; }
 .lap-block { display: grid; gap: 0.6rem; }
 .lap-block .lap-frame { margin-top: 0.4rem; }
 .lap-cam { margin-top: 2.5rem; }
+.fb-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #1877f2; border-color: #1877f2; color: #fff; }
+.fb-btn:hover { filter: brightness(0.93); }
+.yt-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #e62117; border-color: #e62117; color: #fff; }
+.yt-btn:hover { filter: brightness(0.93); }

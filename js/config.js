@@ -31,6 +31,9 @@ window.BACUP_CONFIG = {
   },
 
   // Affiliate shop links. Replace each REPLACE_ME with the full affiliate URL.
+  // IMPORTANT: when real affiliate links go live, an affiliate disclosure must
+  // go back on the kit section (UK CMA/ASA rules). It was removed while the
+  // links are placeholders; see git history for the wording.
   // Any link still set to REPLACE_ME shows a "placeholder link" tag on the site.
   affiliateLinks: {
     helmet:  "REPLACE_ME",
