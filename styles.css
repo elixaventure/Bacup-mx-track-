@@ -264,3 +264,14 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space
 /* Directions map (cropped from the track poster) */
 .map-wrap { max-width: 22rem; }
 .directions-map { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); }
+
+/* WhatsApp: contact button and floating button. WhatsApp green is fixed, not themed. */
+.contact-btns { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.4rem 0 0.75rem; }
+.wa-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #1fa855; border-color: #1fa855; color: #fff; }
+.wa-btn:hover { filter: brightness(0.93); }
+.wa-icon { width: 1.3rem; height: 1.3rem; flex: none; }
+.contact-btns .btn.ghost { color: var(--ink); border-color: var(--ink); }
+.wa-float { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 20; display: grid; place-items: center; width: 3.5rem; height: 3.5rem; border-radius: 50%; background: #1fa855; color: #fff; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); }
+.wa-float .wa-icon { width: 1.9rem; height: 1.9rem; }
+.wa-float:hover { filter: brightness(0.93); }
+footer { padding-bottom: 5.5rem; }
