@@ -25,9 +25,9 @@ It's a plain static site (HTML, CSS, a little JavaScript) with no build step. It
 
 Search `index.html` for `class="tbc"`. Each one is a placeholder shown in yellow on the site:
 
-- Payment methods
-- Directions wording, phone number, Facebook page link
-- Licence and insurance requirements, first-aid cover (FAQ)
+- Online payment
+- Track phone number, Facebook page link
+- Parts: what SaddMX offers, how to order, terms
 
 ## Photos
 
