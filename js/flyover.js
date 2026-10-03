@@ -15,18 +15,30 @@
               String(url || "").match(/^([\w-]{11})$/);
     return m ? m[1] : null;
   }
+  const thumb = (id) => "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg";
+
+  // "Take a lap": a single YouTube video, same tap-to-play poster.
+  const lap = window.BACUP_CONFIG && window.BACUP_CONFIG.lapVideo;
+  const lapStage = document.getElementById("lap-stage");
+  if (lap && lapStage && idFrom(lap.url)) {
+    posterInto(lapStage, idFrom(lap.url), lap.title || "Take a lap");
+  }
+
   const videos = list
     .map((v, i) => ({ id: idFrom(v.url), title: v.title || "Drone video " + (i + 1) }))
     .filter((v) => v.id);
   if (!videos.length) return;
 
-  const thumb = (id) => "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg";
   let current = 0;
   let playing = false;
 
   function showPoster(i) {
-    const v = videos[i];
-    stage.innerHTML = "";
+    posterInto(stage, videos[i].id, videos[i].title, () => playVideo(i));
+  }
+
+  function posterInto(target, id, title, onPlay) {
+    const v = { id: id, title: title };
+    target.innerHTML = "";
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "flyover-btn";
@@ -41,20 +53,23 @@
     play.setAttribute("aria-hidden", "true");
     play.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>';
     btn.append(img, play);
-    btn.addEventListener("click", () => playVideo(i));
-    stage.appendChild(btn);
+    btn.addEventListener("click", onPlay || (() => embedInto(target, id, title)));
+    target.appendChild(btn);
   }
 
-  function playVideo(i) {
-    const v = videos[i];
-    stage.innerHTML = "";
+  function embedInto(target, id, title) {
+    target.innerHTML = "";
     const iframe = document.createElement("iframe");
-    iframe.src = "https://www.youtube-nocookie.com/embed/" + v.id + "?autoplay=1&rel=0&modestbranding=1&playsinline=1";
-    iframe.title = v.title;
+    iframe.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0&modestbranding=1&playsinline=1";
+    iframe.title = title;
     iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen";
     iframe.allowFullscreen = true;
     iframe.className = "flyover-frame";
-    stage.appendChild(iframe);
+    target.appendChild(iframe);
+  }
+
+  function playVideo(i) {
+    embedInto(stage, videos[i].id, videos[i].title);
     playing = true;
   }
 
