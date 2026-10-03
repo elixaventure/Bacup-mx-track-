@@ -17,11 +17,15 @@
   }
   const thumb = (id) => "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg";
 
-  // "Take a lap": a single YouTube video, same tap-to-play poster.
+  // Second YouTube video under the drone player, same tap-to-play poster.
   const lap = window.BACUP_CONFIG && window.BACUP_CONFIG.lapVideo;
   const lapStage = document.getElementById("lap-stage");
   if (lap && lapStage && idFrom(lap.url)) {
-    posterInto(lapStage, idFrom(lap.url), lap.title || "Take a lap");
+    posterInto(lapStage, idFrom(lap.url), lap.title || "On the track");
+    const t = document.getElementById("yt2-title");
+    if (t && lap.title) t.textContent = lap.title;
+  } else if (lapStage) {
+    lapStage.parentElement.hidden = true;
   }
 
   const videos = list

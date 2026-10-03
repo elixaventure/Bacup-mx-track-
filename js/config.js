@@ -10,8 +10,8 @@ window.BACUP_CONFIG = {
   // short title. The first one shows in the big player. Leave the list empty
   // to hide the section.
   // Example: { url: "https://youtu.be/abc123XYZ00", title: "Full track flyover" },
-  // "Take a lap" video on YouTube (shown under the drone videos).
-  lapVideo: { url: "https://youtu.be/dW8-E1mYQx4", title: "Take a lap" },
+  // Second YouTube video, shown under the drone videos.
+  lapVideo: { url: "https://youtu.be/dW8-E1mYQx4", title: "On the track" },
 
   droneVideos: [
     { url: "https://youtu.be/Mze__RNCXBg", title: "Full track drone flyover" },
