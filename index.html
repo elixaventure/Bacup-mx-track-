@@ -27,6 +27,7 @@
     <a class="btn nav-cta" href="#prices">Ride today</a>
     <nav class="tabs" aria-label="Page sections">
       <ul>
+        <li><a href="#lap">Take a lap</a></li>
         <li><a href="#tracks">Tracks</a></li>
         <li><a href="#photos">Photos</a></li>
         <li><a href="#prices">Prices &amp; times</a></li>
@@ -82,6 +83,23 @@
       </ul>
     </div>
   </div>
+
+  <!-- Helmet-cam lap: plays muted on loop; tap for sound -->
+  <section id="lap" class="lap">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Helmet cam · full lap</p>
+        <h2>Take a lap</h2>
+        <p>Ride the big track from the saddle: the start straight, the bridge, the berms and the top section. Tap the video for sound.</p>
+      </div>
+      <div class="lap-frame">
+        <video id="lap-video" poster="images/lap-pov-poster.webp" width="854" height="480" muted loop playsinline controls preload="metadata" aria-label="Helmet-camera video of a full lap of the Bacup MX track">
+          <source src="video/lap-pov.mp4" type="video/mp4">
+          <source src="video/lap-pov.webm" type="video/webm">
+        </video>
+      </div>
+    </div>
+  </section>
 
   <!-- Three ways to ride -->
   <section id="tracks" class="tracks">
@@ -229,6 +247,12 @@
             <img src="images/top-jump-cloud-800.webp" width="800" height="600" alt="A rider in a hoodie lifting off a jump with the valley and Bacup behind under a grey sky" loading="lazy" decoding="async">
           </button>
           <figcaption>Popping the jump above Bacup</figcaption>
+        </figure>
+        <figure class="shot full">
+          <button type="button" class="shot-btn" data-full="images/air-76-1600.webp" aria-label="View larger: Number 76, big air">
+            <img src="images/air-76-800.webp" width="800" height="600" alt="Rider number 76 in a hi-vis jersey high in the air over a jump against a cloudy sky" loading="lazy" decoding="async" style="object-position: 50% 45%">
+          </button>
+          <figcaption>Number 76, big air</figcaption>
         </figure>
         <figure class="shot full">
           <button type="button" class="shot-btn" data-full="images/drone-wide-1600.webp" aria-label="View larger: The whole track from above">
@@ -454,5 +478,6 @@
 <script src="js/status.js"></script>
 <script src="js/gallery.js"></script>
 <script src="js/nav.js"></script>
+<script src="js/lap.js"></script>
 </body>
 </html>

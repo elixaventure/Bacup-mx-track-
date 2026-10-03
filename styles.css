@@ -278,3 +278,8 @@ footer { padding-bottom: 5.5rem; }
 
 /* Full-width gallery photos (big action and drone shots) */
 .shot.full { grid-column: 1 / -1; grid-row: span 2; }
+
+/* Take a lap */
+.lap { border-top: 0; padding-block: 1rem 3rem; }
+.lap-frame { border-radius: 12px; overflow: hidden; background: #000; aspect-ratio: 16 / 9; max-width: 100%; }
+.lap-frame video { display: block; width: 100%; height: 100%; object-fit: cover; }
