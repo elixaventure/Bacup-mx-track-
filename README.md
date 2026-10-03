@@ -47,7 +47,7 @@ Avoid photos where car number plates or children's faces are clearly visible, un
 
 ## Affiliate links
 
-Open `js/config.js` and replace each `REPLACE_ME` with the full affiliate URL for that item. Buttons say "Shop now" and the retailer isn't named on the page. Real links open in a new tab and are marked `rel="sponsored"`, which is what Google expects for affiliate links. Keep the affiliate disclosure on the kit section and in the footer.
+Open `js/config.js` and replace each `REPLACE_ME` with the full affiliate URL for that item. Buttons say "Shop now" and the retailer isn't named on the page. Real links open in a new tab and are marked `rel="sponsored"`, which is what Google expects for affiliate links. When real affiliate links go live, put an affiliate disclosure back on the kit section and in the footer (UK CMA/ASA rules). It was removed while the links are placeholders.
 
 ## Track status from your phone (Google Sheet)
 
