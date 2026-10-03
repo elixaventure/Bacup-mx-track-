@@ -233,3 +233,8 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space
 .enduro-strip { display: grid; gap: 0.5rem; grid-template-columns: repeat(2, 1fr); }
 @media (min-width: 760px) { .enduro-strip { grid-template-columns: repeat(4, 1fr); gap: 0.75rem; } }
 .enduro-strip .shot { aspect-ratio: 3 / 4; }
+
+/* Low-key parts note (until the delivery arrangement is agreed) */
+.parts-lite { padding-block: 0 1.5rem; }
+.parts-lite p { max-width: none; padding: 0.9rem 1.1rem; border-left: 4px solid var(--plate); background: var(--surface); border-radius: 0 8px 8px 0; color: var(--muted); }
+.parts-lite strong { color: var(--ink); }
