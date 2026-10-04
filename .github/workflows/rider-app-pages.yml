@@ -1,12 +1,12 @@
-# Builds the rider app (rider-app/) and publishes it to GitHub Pages:
-#   https://elixaventure.github.io/Bacup-mx-track-/
-# The Bacup MX website itself is still deployed by Netlify; this doesn't touch it.
-name: Rider app → GitHub Pages
+# Publishes this repo to GitHub Pages as ONE site:
+#   https://elixaventure.github.io/Bacup-mx-track-/      → the Bacup MX website (repo root files, unchanged)
+#   https://elixaventure.github.io/Bacup-mx-track-/app/  → the rider app (built from rider-app/)
+# Requires Settings → Pages → Source: "GitHub Actions" (replaces "Deploy from a branch").
+name: Website + rider app → GitHub Pages
 
 on:
   push:
     branches: [main, ccr-1195d3e4-le9wli]
-    paths: ["rider-app/**", ".github/workflows/rider-app-pages.yml"]
   workflow_dispatch:
 
 permissions:
@@ -15,40 +15,72 @@ permissions:
   id-token: write
 
 concurrency:
-  group: rider-app-pages
+  group: pages
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: rider-app
+    outputs:
+      pages: ${{ steps.pages.outputs.type }}
     steps:
       - uses: actions/checkout@v4
+
+      # "legacy" = Pages still set to "Deploy from a branch"; publishing from here would fail.
+      - id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          type=$(gh api "repos/${{ github.repository }}/pages" --jq .build_type 2>/dev/null || echo unknown)
+          echo "type=$type" >> "$GITHUB_OUTPUT"
+          if [ "$type" = "legacy" ]; then
+            echo "::notice title=Not published yet::Set Settings → Pages → Source to 'GitHub Actions' to publish the website + rider app. The build and tests still run."
+          fi
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: rider-app/package-lock.json
-      - run: npm ci
-      - run: npm run lint
-      - run: npm test
-      - run: npm run build
+
+      - name: Test and build the rider app
+        working-directory: rider-app
         env:
-          BASE_PATH: /${{ github.event.repository.name }}/
-      # GitHub Pages has no URL rewrites: serve the app for deep links too.
-      - run: cp dist/index.html dist/404.html
+          BASE_PATH: /${{ github.event.repository.name }}/app/
+        run: |
+          npm ci
+          npm run lint
+          npm test
+          npm run build
+
+      - name: Assemble the site (website at the root, app under /app/)
+        run: |
+          mkdir -p _site
+          # Website = every tracked file outside rider-app/ (no build step).
+          git ls-files -z | grep -zvE '^(rider-app/|\.github/|README\.md$|netlify\.toml$)' | xargs -0 cp --parents -t _site
+          cp -r rider-app/dist _site/app
+          # GitHub Pages has no URL rewrites. Unknown paths under /app/ are sent back
+          # to the app with the path in ?p=, which the app restores on load.
+          cat > _site/404.html <<HTML
+          <!doctype html><meta charset="utf-8"><title>Not found</title>
+          <script>
+            var base = "/${{ github.event.repository.name }}/";
+            var path = location.pathname;
+            if (path.indexOf(base + "app/") === 0) location.replace(base + "app/?p=" + encodeURIComponent(path + location.search));
+          </script>
+          <p style="font-family:system-ui;padding:24px">Page not found. <a href="/${{ github.event.repository.name }}/">Go to the home page</a>.</p>
+          HTML
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: rider-app/dist
+          path: _site
 
   deploy:
     needs: build
+    if: needs.build.outputs.pages != 'legacy'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}app/
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
