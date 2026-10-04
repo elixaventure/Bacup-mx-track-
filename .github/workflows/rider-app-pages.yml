@@ -1,0 +1,54 @@
+# Builds the rider app (rider-app/) and publishes it to GitHub Pages:
+#   https://elixaventure.github.io/Bacup-mx-track-/
+# The Bacup MX website itself is still deployed by Netlify; this doesn't touch it.
+name: Rider app → GitHub Pages
+
+on:
+  push:
+    branches: [main, ccr-1195d3e4-le9wli]
+    paths: ["rider-app/**", ".github/workflows/rider-app-pages.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: rider-app-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rider-app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: rider-app/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
+      # GitHub Pages has no URL rewrites: serve the app for deep links too.
+      - run: cp dist/index.html dist/404.html
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: rider-app/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
