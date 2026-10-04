@@ -12,3 +12,10 @@
   for = "/js/*"
   [headers.values]
     Cache-Control = "public, max-age=300"
+
+# rider-app/ is a separate app with its own Netlify site; don't serve its source from this one.
+[[redirects]]
+  from = "/rider-app/*"
+  to = "/404.html"
+  status = 404
+  force = true

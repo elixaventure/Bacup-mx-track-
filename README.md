@@ -4,6 +4,10 @@ Website for Bacup MX, a motocross track in Bacup, Lancashire. Open riding for ki
 
 It's a plain static site (HTML, CSS, a little JavaScript) with no build step. It deploys to Netlify straight from this repo.
 
+## Rider app
+
+`rider-app/` is a separate project: the rider timing and progression app (React + Vite PWA). It has its own README, build and Netlify site, and it doesn't affect this website. See [`rider-app/README.md`](rider-app/README.md).
+
 ## Files
 
 | File | What it's for |
